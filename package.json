@@ -1,0 +1,23 @@
+{
+  "name": "dr-bharath-acu-heal-quotation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Custom Multi-Branch Clinic Management Software Proposal for Dr. Bharath's Acu Heal by BUILD FAST WEB",
+  "scripts": {
+    "dev": "serve .",
+    "start": "serve .",
+    "build": "echo 'Static site ready for deployment'"
+  },
+  "keywords": [
+    "clinic-management",
+    "proposal",
+    "quotation",
+    "build-fast-web",
+    "acu-heal"
+  ],
+  "author": "BUILD FAST WEB <9789502278>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

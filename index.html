@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Bharath's Acu Heal — Custom Clinic Management Software Proposal | BUILD FAST WEB</title>
+  <meta name="description" content="Official quotation and technical scope specification prepared by BUILD FAST WEB for Dr. Bharath's Acu Heal Multi-Branch Management Software & CRM Platform.">
+  <meta name="author" content="BUILD FAST WEB">
+  <meta name="theme-color" content="#FAFAF8">
+
+  <!-- Open Graph / Social Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dr. Bharath's Acu Heal — Custom Clinic Management Software Proposal">
+  <meta property="og:description" content="Commercial & technical scope specification for Dr. Bharath's Acu Heal (3 Branches) prepared by BUILD FAST WEB.">
+  <meta property="og:image" content="assets/dr-bharath-acu-heal-logo.png">
+
+  <!-- Twitter Previews -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dr. Bharath's Acu Heal — Clinic Management System Proposal">
+  <meta name="twitter:description" content="Development & Infrastructure quotation prepared by BUILD FAST WEB for Dr. Bharath's Acu Heal.">
+  <meta name="twitter:image" content="assets/dr-bharath-acu-heal-logo.png">
+
+  <!-- Favicon / Brand Icon -->
+  <link rel="icon" type="image/png" href="assets/dr-bharath-acu-heal-logo.png">
+
+  <!-- Google Fonts: Archivo (Headlines) & IBM Plex Sans (Body/Running Text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet adhering to Design Tokens -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- html2pdf.js for 1-click Client-Side PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="brand-wrapper">
+        <div class="brand-logo-container">
+          <img src="assets/dr-bharath-acu-heal-logo.png" alt="Dr. Bharath's Acu Heal Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-divider"></div>
+        <div class="brand-text">
+          <h1 class="brand-title">Dr. Bharath's Acu Heal</h1>
+          <span>Proposed by <strong>BUILD FAST WEB</strong></span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn btn-secondary" title="Toggle Theme" aria-label="Toggle theme">
+          <svg id="themeIconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span id="themeLabel">Dark Mode</span>
+        </button>
+
+        <button id="printBtn" class="btn btn-secondary" title="Print document">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Print</span>
+        </button>
+
+        <!-- The 1% Signal Color on Primary Action only -->
+        <button id="downloadPdfBtn" class="btn btn-signal" title="Download official PDF proposal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download PDF Proposal</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Quotation Container for Screen and PDF Export -->
+  <main id="quotationContent">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content fade-rise">
+          <div class="hero-meta">
+            <span class="pill"><span class="pill-dot"></span> Proposal Active</span>
+            <span class="proposal-id">Ref: BFW-ACU-2026-01</span>
+            <span class="pill"><span class="pill-neutral-dot"></span> 3 Clinic Branches</span>
+            <span class="partner-tag"><span>Software Team:</span> BUILD FAST WEB</span>
+          </div>
+
+          <h1 class="display-1">Dr. Bharath's Acu Heal — Clinic Management System</h1>
+
+          <p class="lead">
+            A centralized, bespoke Clinic Management &amp; CRM Platform developed by <strong>BUILD FAST WEB</strong> specifically around the daily clinical, operational, and financial workflows of Dr. Bharath's Acu Heal across all 3 branches.
+          </p>
+
+          <div class="hero-cta-group no-print">
+            <button id="heroPdfBtn" class="btn btn-signal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download PDF Quotation</span>
+            </button>
+            <a href="#commercial-terms" class="btn btn-secondary">Review Pricing &amp; Terms</a>
+            <a href="#modules" class="btn btn-ghost">View Detailed Modules</a>
+          </div>
+        </div>
+
+        <div class="hero-card fade-rise">
+          <div class="hero-card-header">
+            <div>
+              <h3>Commercial Overview</h3>
+              <span>Scope-Based Development &amp; Operations</span>
+            </div>
+            <span class="pill">Fixed Scope</span>
+          </div>
+
+          <div class="commercial-hero-items">
+            <div class="commercial-item">
+              <div class="item-label">
+                Custom Software Development
+                <small>One-time investment (4 Milestones)</small>
+              </div>
+              <div class="item-val">₹75,000</div>
+            </div>
+
+            <div class="commercial-item">
+              <div class="item-label">
+                Hosting &amp; Maintenance Plan
+                <small>Infrastructure, Support &amp; 10 GB Storage</small>
+              </div>
+              <div class="item-val">₹3,000 <small>/ month</small></div>
+            </div>
+
+            <div class="commercial-item">
+              <div class="item-label">
+                Estimated Delivery Timeline
+                <small>Including architecture, UAT &amp; rollout</small>
+              </div>
+              <div class="item-val">~1.5 <small>Months</small></div>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div class="stat-box">
+              <span class="stat-label">Coverage</span>
+              <span class="stat-val">3 Branches</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Platform</span>
+              <span class="stat-val">Web + PWA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operational Foundation Overview -->
+    <section class="section section-tint" id="overview">
+      <div class="container">
+        <div class="section-header fade-rise">
+          <span class="pill section-tag"><span class="pill-neutral-dot"></span> System Architecture</span>
+          <h2>Centralized Control Across All 3 Branches</h2>
+          <p class="body-text">
+            Designed to replace fragmented spreadsheets and standalone point solutions with an integrated, secure digital operations engine accessible from any device.
+          </p>
+        </div>
+
+        <div class="overview-grid">
+          <div class="panel overview-card fade-rise">
+            <div class="overview-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3>Unified Multi-Branch Command</h3>
+            <p>
+              Operate 3 clinic branches from one centralized system. Branch-level isolation prevents cross-branch data confusion for front-desk staff, while management enjoys real-time aggregated reporting.
+            </p>
+            <div class="card-meta">Role-Based Data Isolation</div>
+          </div>
+
+          <div class="panel overview-card fade-rise">
+            <div class="overview-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3>PWA Multi-Device Mobility</h3>
+            <p>
+              Built as a modern Progressive Web App (PWA). Fast, responsive UI works seamlessly across reception desktop computers, doctor tablets, and mobile devices without store installation hurdles.
+            </p>
+            <div class="card-meta">Desktop • Tablet • Mobile</div>
+          </div>
+
+          <div class="panel overview-card fade-rise">
+            <div class="overview-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3>Enterprise Privacy &amp; Security</h3>
+            <p>
+              Protected patient health records, encrypted SSL transport, parameterized queries, and strict granular permission levels ensuring doctors, receptionists, and accounts only see authorized data.
+            </p>
+            <div class="card-meta">SSL / HTTPS • Encrypted Data</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercial Terms & Pricing Breakdown -->
+    <section class="section" id="commercial-terms">
+      <div class="container">
+        <div class="section-header fade-rise">
+          <span class="pill section-tag"><span class="pill-neutral-dot"></span> Commercials &amp; Terms</span>
+          <h2>Clear, Scope-Based Pricing Structure</h2>
+          <p class="body-text">
+            Transparent split between upfront custom software development and ongoing infrastructure maintenance. No hidden licensing costs or per-seat user fees.
+          </p>
+        </div>
+
+        <div class="pricing-container">
+          <!-- Build Pricing Box -->
+          <div class="pricing-box featured fade-rise">
+            <div class="pricing-header">
+              <div class="pricing-title-row">
+                <h3>Custom Software Development</h3>
+                <span class="pill">One-Time Investment</span>
+              </div>
+              <div class="price-display">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">75,000</span>
+                <span class="price-period">total one-time</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Complete 15-Module Custom Build:</strong> Tailored specifically to Dr. Bharath's Acu Heal's clinical &amp; billing workflows.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>3 Branches Architecture:</strong> Centralized database with branch-level isolation and consolidated management.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Biometric Attendance Integration:</strong> Hardware integration with existing device via supported API/SDK.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>PWA Cross-Device Application:</strong> Fast, mobile-responsive interface for desktop, tablet, and mobile.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Testing, Deployment &amp; Handover:</strong> Comprehensive UAT, production rollout, and staff training.</span>
+              </li>
+            </ul>
+
+            <div class="pricing-note">
+              Disbursed in 4 structured milestones based on validated project deliverables.
+            </div>
+          </div>
+
+          <!-- Recurring Maintenance Box -->
+          <div class="pricing-box fade-rise">
+            <div class="pricing-header">
+              <div class="pricing-title-row">
+                <h3>Infrastructure &amp; Maintenance</h3>
+                <span class="pill">Monthly Plan</span>
+              </div>
+              <div class="price-display">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">3,000</span>
+                <span class="price-period">/ month recurring</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Cloud Server &amp; Database Hosting:</strong> High-availability cloud server maintenance and SSL certificates.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Continuous Backups &amp; Security:</strong> Automated daily database snapshots and server security patches.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Bug Fixes &amp; Minor Tweaks:</strong> Active technical support, bug resolution, and small UI/label adjustments.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>10 GB Media Storage Included:</strong> Stores ~500 one-min videos (up to 20MB) or ~5,000 patient photos with zero extra fees.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Unlimited Staff Accounts:</strong> Simultaneous access for all staff across 3 branches with zero per-user seat fees.</span>
+              </li>
+            </ul>
+
+            <div class="pricing-note">
+              Storage costs increase based on actual usage alone — zero extra charge if 10 GB is not exceeded (₹50/GB/month only on exceeded GBs).
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone Disbursement Schedule -->
+        <div class="milestones-wrapper fade-rise">
+          <div class="milestones-header">
+            <div>
+              <h3>Milestone-Based Payment Schedule</h3>
+              <p class="small-text">Payments linked directly to tangible development milestones and acceptance</p>
+            </div>
+            <span class="pill"><span class="pill-neutral-dot"></span> 4 Delivery Phases</span>
+          </div>
+
+          <table class="milestones-table">
+            <thead>
+              <tr>
+                <th>Phase / Milestone</th>
+                <th>Core Deliverables &amp; Scope Completed</th>
+                <th style="text-align: right;">Split &amp; Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="phase-col">
+                  Milestone 1
+                  <small style="display:block; color: var(--foreground-subtle); font-weight: normal;">Project Kickoff</small>
+                </td>
+                <td class="deliverable-col">
+                  Requirement sign-off, system architecture, database schema design, UI/UX wireframes, multi-branch data structure &amp; role-based access setup.
+                </td>
+                <td class="split-col">
+                  20%
+                  <small>₹15,000</small>
+                </td>
+              </tr>
+              <tr>
+                <td class="phase-col">
+                  Milestone 2
+                  <small style="display:block; color: var(--foreground-subtle); font-weight: normal;">Core Operations</small>
+                </td>
+                <td class="deliverable-col">
+                  Patient registration engine, duplicate phone detection, multi-branch appointment directory, fee &amp; session package tracking, billing &amp; print layouts.
+                </td>
+                <td class="split-col">
+                  40%
+                  <small>₹30,000</small>
+                </td>
+              </tr>
+              <tr>
+                <td class="phase-col">
+                  Milestone 3
+                  <small style="display:block; color: var(--foreground-subtle); font-weight: normal;">Advanced Modules</small>
+                </td>
+                <td class="deliverable-col">
+                  CRM enquiry pipeline, WhatsApp automation triggers, biometric hardware attendance sync, daily accounting, expense logging, staff salary &amp; video directory.
+                </td>
+                <td class="split-col">
+                  25%
+                  <small>₹18,750</small>
+                </td>
+              </tr>
+              <tr>
+                <td class="phase-col">
+                  Milestone 4
+                  <small style="display:block; color: var(--foreground-subtle); font-weight: normal;">Deployment &amp; Handover</small>
+                </td>
+                <td class="deliverable-col">
+                  Multi-branch User Acceptance Testing (UAT), mobile/PWA performance optimization, production server deployment, staff onboarding &amp; live handover.
+                </td>
+                <td class="split-col">
+                  15%
+                  <small>₹11,250</small>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive Module Directory -->
+    <section class="section section-tint" id="modules">
+      <div class="container">
+        <div class="section-header fade-rise">
+          <span class="pill section-tag"><span class="pill-neutral-dot"></span> Module Specifications</span>
+          <h2>Complete Module &amp; Feature Breakdown</h2>
+          <p class="body-text">
+            Detailed functional scope of all software modules designed for Dr. Bharath's Acu Heal operations.
+          </p>
+        </div>
+
+        <!-- Interactive Filter Bar -->
+        <div class="filter-bar no-print fade-rise">
+          <button class="filter-btn active" data-filter="all">All Modules (15)</button>
+          <button class="filter-btn" data-filter="front-office">Front-Desk &amp; Patients</button>
+          <button class="filter-btn" data-filter="clinical">Clinical &amp; Media</button>
+          <button class="filter-btn" data-filter="crm">CRM &amp; Growth</button>
+          <button class="filter-btn" data-filter="finance">Finance &amp; Admin</button>
+        </div>
+
+        <!-- Modules Grid -->
+        <div class="modules-grid" id="modulesContainer">
+
+          <!-- 1. Admin & Access -->
+          <div class="module-card fade-rise" data-category="finance">
+            <div class="module-header">
+              <h3>Admin &amp; User Role Management</h3>
+              <span class="pill">Security</span>
+            </div>
+            <p class="module-desc">
+              Comprehensive role-based security ensuring staff members only access modules relevant to their daily responsibilities across branches.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Secure authentication &amp; encrypted password hashing</li>
+              <li><span class="bullet-dot"></span> Admin, Doctor, Front-Desk &amp; Accounts permission levels</li>
+              <li><span class="bullet-dot"></span> Simultaneous multi-staff access without session collisions</li>
+              <li><span class="bullet-dot"></span> Audit logging of sensitive billing and patient modifications</li>
+            </ul>
+          </div>
+
+          <!-- 2. Multi-Branch Operations -->
+          <div class="module-card fade-rise" data-category="front-office">
+            <div class="module-header">
+              <h3>Multi-Branch Management (3 Branches)</h3>
+              <span class="pill">Core Operations</span>
+            </div>
+            <p class="module-desc">
+              Centralized platform connecting all 3 clinic branches with instant switching for management and isolated views for branch staff.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Dedicated branch-wise records for patients, appointments &amp; sales</li>
+              <li><span class="bullet-dot"></span> Branch identification tags across all bills, receipts, and reports</li>
+              <li><span class="bullet-dot"></span> Branch-isolated front-office views to avoid operational confusion</li>
+              <li><span class="bullet-dot"></span> Consolidated management overview for unified revenue tracking</li>
+            </ul>
+          </div>
+
+          <!-- 3. Patient Management -->
+          <div class="module-card fade-rise" data-category="front-office">
+            <div class="module-header">
+              <h3>Smart Patient Registration &amp; Lookup</h3>
+              <span class="pill">Clinical Engine</span>
+            </div>
+            <p class="module-desc">
+              Fast, frictionless patient intake with automatic duplicate detection and integrated camera capture for patient records.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Automatic unique Patient ID (PID) generation</li>
+              <li><span class="bullet-dot"></span> Live duplicate detection via mobile number with instant auto-fill</li>
+              <li><span class="bullet-dot"></span> Webcam capture and device upload for patient profile photos</li>
+              <li><span class="bullet-dot"></span> Comprehensive medical history, referral source, and custom fields</li>
+            </ul>
+          </div>
+
+          <!-- 4. Appointment Management -->
+          <div class="module-card fade-rise" data-category="front-office">
+            <div class="module-header">
+              <h3>Appointment Scheduling &amp; Slot Directory</h3>
+              <span class="pill">Front-Office</span>
+            </div>
+            <p class="module-desc">
+              Visual slot booking and date-wise appointment directory enabling front-office staff to schedule, reschedule, and track patient flow.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Custom appointment time slots and branch selection</li>
+              <li><span class="bullet-dot"></span> Today's live appointment directory with quick status toggles</li>
+              <li><span class="bullet-dot"></span> Fast date-navigation to view upcoming and historical bookings</li>
+              <li><span class="bullet-dot"></span> Instant patient contact lookup and rescheduling/cancellation logs</li>
+            </ul>
+          </div>
+
+          <!-- 5. Fee & Session Tracking -->
+          <div class="module-card fade-rise" data-category="clinical">
+            <div class="module-header">
+              <h3>Patient Fee &amp; Session Package Tracker</h3>
+              <span class="pill">Acupuncture Engine</span>
+            </div>
+            <p class="module-desc">
+              Dedicated session accounting specifically tailored for multi-session acupuncture treatment packages and balance tracking.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Configurable per-session and total treatment package fees</li>
+              <li><span class="bullet-dot"></span> Automatic calculation of total payable, paid, and pending balance</li>
+              <li><span class="bullet-dot"></span> Real-time session consumption meter (Completed vs Remaining)</li>
+              <li><span class="bullet-dot"></span> Complete historical payment and session attendance timeline</li>
+            </ul>
+          </div>
+
+          <!-- 6. Billing & Invoicing -->
+          <div class="module-card fade-rise" data-category="finance">
+            <div class="module-header">
+              <h3>Billing, Tax Invoices &amp; Print Layouts</h3>
+              <span class="pill">Finance</span>
+            </div>
+            <p class="module-desc">
+              Professional, clinic-branded invoice generation with automatic sequential numbering and thermal/A4 print compatibility.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Automatic sequential invoice numbering with branch prefixes</li>
+              <li><span class="bullet-dot"></span> Itemized treatment, session packages, and payment breakdown</li>
+              <li><span class="bullet-dot"></span> Customized print layout matching Dr. Bharath Clinic's brand identity</li>
+              <li><span class="bullet-dot"></span> Instant receipt printing and PDF download for patients</li>
+            </ul>
+          </div>
+
+          <!-- 7. WhatsApp Automation -->
+          <div class="module-card fade-rise" data-category="crm">
+            <div class="module-header">
+              <h3>Automated WhatsApp Communication</h3>
+              <span class="pill">Automation</span>
+            </div>
+            <p class="module-desc">
+              Hands-free patient engagement delivering timely appointment session reminders and personalized birthday wishes.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Automated session reminder notifications before scheduled visits</li>
+              <li><span class="bullet-dot"></span> Automated personalized birthday greetings for registered patients</li>
+              <li><span class="bullet-dot"></span> Customizable clinic message templates and reminder frequencies</li>
+              <li><span class="bullet-dot"></span> Integrated via official WhatsApp API (usage billed pass-through)</li>
+            </ul>
+          </div>
+
+          <!-- 8. CRM & Lead Pipeline -->
+          <div class="module-card fade-rise" data-category="crm">
+            <div class="module-header">
+              <h3>CRM &amp; Multi-Source Lead Pipeline</h3>
+              <span class="pill">Growth</span>
+            </div>
+            <p class="module-desc">
+              Structured lead tracking to capture enquiries from Instagram, Google, and referrals, managing the conversion funnel.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Channel source attribution (Instagram, Google, Walk-in, Ads, Referral)</li>
+              <li><span class="bullet-dot"></span> Funnel status: New → Follow-up → Attended → Converted → Lost</li>
+              <li><span class="bullet-dot"></span> Follow-up scheduling with reminders for front-desk staff</li>
+              <li><span class="bullet-dot"></span> Branch-wise CRM conversion rates and acquisition analytics</li>
+            </ul>
+          </div>
+
+          <!-- 9. Biometric Attendance -->
+          <div class="module-card fade-rise" data-category="finance">
+            <div class="module-header">
+              <h3>Biometric Hardware Attendance Sync</h3>
+              <span class="pill">Hardware Integration</span>
+            </div>
+            <p class="module-desc">
+              Integration with the clinic's existing biometric attendance hardware to log staff check-ins and working hours.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Direct sync with biometric machine API/SDK for staff check-in/out</li>
+              <li><span class="bullet-dot"></span> Automated calculation of daily working hours and attendance status</li>
+              <li><span class="bullet-dot"></span> Branch-wise staff attendance reports for management review</li>
+              <li><span class="bullet-dot"></span> Subject to device SDK/API network availability and data access</li>
+            </ul>
+          </div>
+
+          <!-- 10. Accounts & Expenses -->
+          <div class="module-card fade-rise" data-category="finance">
+            <div class="module-header">
+              <h3>Clinic Accounts, Income &amp; Expenses</h3>
+              <span class="pill">Accounting</span>
+            </div>
+            <p class="module-desc">
+              Straightforward daily accounting capturing treatment collections, categorized clinic expenses, and net daily positions.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Daily sales, collections, and outstanding balance summaries</li>
+              <li><span class="bullet-dot"></span> Categorized expense recording (Rent, Utilities, Supplies, Misc)</li>
+              <li><span class="bullet-dot"></span> Branch-wise income vs expense reports with date-range filters</li>
+              <li><span class="bullet-dot"></span> Exportable financial summaries for accountant review</li>
+            </ul>
+          </div>
+
+          <!-- 11. Vendor Management -->
+          <div class="module-card fade-rise" data-category="finance">
+            <div class="module-header">
+              <h3>Vendor Directory &amp; Purchase Ledger</h3>
+              <span class="pill">Procurement</span>
+            </div>
+            <p class="module-desc">
+              Centralized record keeping for clinic equipment, consumables, needle suppliers, and external service vendors.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Vendor profiles, contact details, and product categories</li>
+              <li><span class="bullet-dot"></span> Purchase logging and payment status tracking</li>
+              <li><span class="bullet-dot"></span> Historical procurement logs and vendor payment history</li>
+            </ul>
+          </div>
+
+          <!-- 12. Staff & Salary -->
+          <div class="module-card fade-rise" data-category="finance">
+            <div class="module-header">
+              <h3>Staff Profiles &amp; Basic Salary Management</h3>
+              <span class="pill">HR &amp; Payroll</span>
+            </div>
+            <p class="module-desc">
+              Staff directory with branch assignments, baseline salary structures, and historical salary payment disbursement records.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Staff master profiles, role assignments, and branch mapping</li>
+              <li><span class="bullet-dot"></span> Monthly salary structure configuration and payment records</li>
+              <li><span class="bullet-dot"></span> Payment date tracking and basic staff payout history</li>
+            </ul>
+          </div>
+
+          <!-- 13. Treatment Video Directory -->
+          <div class="module-card fade-rise" data-category="clinical">
+            <div class="module-header">
+              <h3>Treatment Progress Video Directory</h3>
+              <span class="pill">Visual Archives</span>
+            </div>
+            <p class="module-desc">
+              Secure patient-linked video archive allowing therapists to capture, upload, and review treatment progress footage.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Patient-specific visual treatment progress history archive</li>
+              <li><span class="bullet-dot"></span> Direct upload of rehabilitation and needle technique videos</li>
+              <li><span class="bullet-dot"></span> <strong>10 GB included storage</strong> under standard maintenance plan</li>
+              <li><span class="bullet-dot"></span> Real-time storage consumption meter with transparent ₹50/GB tier</li>
+            </ul>
+          </div>
+
+          <!-- 14. Executive Dashboard -->
+          <div class="module-card fade-rise" data-category="front-office">
+            <div class="module-header">
+              <h3>Executive Management KPI Dashboard</h3>
+              <span class="pill">Analytics</span>
+            </div>
+            <p class="module-desc">
+              Single-pane-of-glass executive overview displaying real-time financial, patient, and operational indicators across all branches.
+            </p>
+            <ul class="module-feature-list">
+              <li><span class="bullet-dot"></span> Live metrics: Today's sales, collections, pending dues, and expenses</li>
+              <li><span class="bullet-dot"></span> Real-time appointment timeline and patient check-in statuses</li>
+              <li><span class="bullet-dot"></span> CRM lead conversion rates and top lead acquisition channels</li>
+              <li><span class="bullet-dot"></span> Interactive custom date filters and branch comparison views</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Scope Boundaries & Maintenance Agreement (The Guardrail Clause) -->
+    <section class="section" id="scope-governance">
+      <div class="container">
+        <div class="section-header fade-rise">
+          <span class="pill section-tag"><span class="pill-neutral-dot"></span> Governance &amp; SLA</span>
+          <h2>Scope Boundaries &amp; Maintenance Agreement</h2>
+          <p class="body-text">
+            To ensure rapid delivery, predictable budgeting, and high system reliability, clear boundaries are established between routine maintenance and future modular expansions.
+          </p>
+        </div>
+
+        <div class="guardrails-grid">
+          <!-- Included in Monthly Plan -->
+          <div class="guardrail-card fade-rise">
+            <div class="guardrail-card-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <div>
+                <h3>Included in ₹3,000 / Month Plan</h3>
+                <span class="small-text">Infrastructure &amp; Active Maintenance</span>
+              </div>
+            </div>
+
+            <ul class="guardrail-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Cloud Infrastructure &amp; SSL:</strong> Web application hosting, server performance monitoring, and SSL certificate renewals.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Automated Backups:</strong> Daily automated database snapshots with disaster recovery protection.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Bug Fixes &amp; Security Updates:</strong> Immediate resolution of technical glitches, security hardening, and OS patches.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>Minor Scope Adjustments:</strong> Field label changes, new data entry fields, minor UI adjustments, validation tweaks, and workflow improvements.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span><strong>10 GB Video Storage:</strong> Centralized media storage for treatment videos across all 3 branches.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Separately Quoted Major Additions -->
+          <div class="guardrail-card fade-rise">
+            <div class="guardrail-card-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <div>
+                <h3>Separately Quoted Additions</h3>
+                <span class="small-text">Future Phase Modules</span>
+              </div>
+            </div>
+
+            <ul class="guardrail-list">
+              <li>
+                <span class="check-icon" style="color: var(--foreground-subtle);">•</span>
+                <span><strong>Major New Business Modules:</strong> Full pharmacy/dispensary inventory, IPD bed management, or laboratory diagnostic systems.</span>
+              </li>
+              <li>
+                <span class="check-icon" style="color: var(--foreground-subtle);">•</span>
+                <span><strong>Dedicated Native Store Apps:</strong> Standalone native iOS/Android binary builds compiled for App Store / Play Store.</span>
+              </li>
+              <li>
+                <span class="check-icon" style="color: var(--foreground-subtle);">•</span>
+                <span><strong>External ERP/Accounting Connectors:</strong> Bespoke integrations with enterprise SAP, Tally, or custom third-party ERPs.</span>
+              </li>
+              <li>
+                <span class="check-icon" style="color: var(--foreground-subtle);">•</span>
+                <span><strong>Public Marketing Landing Page:</strong> Separate patient-facing marketing website with SEO &amp; booking widgets (Phase 2).</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Third Party Integration Callout -->
+        <div class="integration-callout fade-rise">
+          <div class="callout-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div class="callout-text">
+            <h4>Third-Party Services &amp; API Usage Pass-Through</h4>
+            <p>
+              Direct external service costs such as WhatsApp Business API messaging fees, SMS gateway packages, payment gateway transaction charges, and biometric vendor SDK licenses are billed directly by their respective providers. The software architecture connects to these services seamlessly without markup.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Storage & Monthly Cost Estimator -->
+    <section class="section section-tint" id="calculator">
+      <div class="container">
+        <div class="section-header fade-rise">
+          <span class="pill section-tag"><span class="pill-neutral-dot"></span> Storage Transparency</span>
+          <h2>Media Storage &amp; Transparent Cost Estimator</h2>
+          <p class="body-text">
+            The base maintenance plan includes <strong>10 GB of high-speed media storage</strong>. See how many 1-minute videos and patient images fit inside your free allowance, and see exactly how costs scale if your clinic exceeds 10 GB.
+          </p>
+        </div>
+
+        <div class="calculator-wrapper fade-rise">
+          <div class="calculator-controls">
+
+            <!-- Video Slider (Up to 20 MB per 1-minute clip) -->
+            <div class="slider-group">
+              <div class="slider-header">
+                <label for="videoSlider">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                  </svg>
+                  <span>1-Minute Treatment Videos (<small>up to 20 MB each</small>)</span>
+                </label>
+                <span class="slider-val-badge" id="videoDisplay">200 Videos</span>
+              </div>
+              <input type="range" id="videoSlider" min="0" max="1000" step="10" value="200">
+              <span class="small-text">Estimated at ~20 MB per 1-minute acupuncture session &amp; progress video.</span>
+            </div>
+
+            <!-- Photo Slider (~2 MB per patient photo) -->
+            <div class="slider-group">
+              <div class="slider-header">
+                <label for="imageSlider">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                  <span>Patient Photos &amp; Images (<small>~2 MB each</small>)</span>
+                </label>
+                <span class="slider-val-badge" id="imageDisplay">1,000 Photos</span>
+              </div>
+              <input type="range" id="imageSlider" min="0" max="4000" step="50" value="1000">
+              <span class="small-text">Estimated at ~2 MB per high-resolution patient treatment / profile picture.</span>
+            </div>
+
+            <!-- Media Equivalents Grid -->
+            <div class="media-metric-grid">
+              <div class="media-metric-box">
+                <span class="metric-label">Video Volume</span>
+                <div class="metric-val" id="metricVideosGb">3.9 GB</div>
+                <span class="metric-note" id="metricVideosCount">200 Videos (@ 20MB)</span>
+              </div>
+              <div class="media-metric-box">
+                <span class="metric-label">Image Volume</span>
+                <div class="metric-val" id="metricImagesGb">2.0 GB</div>
+                <span class="metric-note" id="metricImagesCount">1,000 Photos (@ 2MB)</span>
+              </div>
+            </div>
+
+            <!-- Live Capacity Bar -->
+            <div class="storage-meter-box">
+              <div class="meter-header">
+                <span>Total Storage Used: <strong id="meterUsedText">5.9 GB</strong></span>
+                <span id="meterStatusBadge">59% of Free Allowance</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="meterFill" style="width: 59%;"></div>
+              </div>
+              <div class="meter-footer">
+                <span>0 GB</span>
+                <span><strong>10 GB Included Plan (Free)</strong></span>
+                <span id="meterExtraLimitText">20 GB+</span>
+              </div>
+            </div>
+
+            <!-- Usage-Based Guarantee Callout -->
+            <div class="guarantee-box">
+              <div class="guarantee-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <p>
+                <strong>Usage-Based Billing Guarantee:</strong> Storage cost increases strictly based on actual media stored. <strong>You are NOT charged any extra storage fees if the 10 GB limit is not exceeded.</strong> When storage exceeds 10 GB, you are only billed ₹50/month per additional GB actually used.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Result Breakdown Card -->
+          <div class="calculator-result-card">
+            <div class="result-row">
+              <span>Base Hosting &amp; Maintenance</span>
+              <span>₹3,000 / mo</span>
+            </div>
+            <div class="result-row">
+              <span>Included Media Allowance</span>
+              <span>10 GB (<strong style="color: var(--foreground);">₹0 Extra</strong>)</span>
+            </div>
+            <div class="result-row">
+              <span>Total Media Stored</span>
+              <span id="calcTotalGb" style="font-weight: 600;">5.9 GB</span>
+            </div>
+            <div class="result-row">
+              <span>Additional Exceeded Storage</span>
+              <span id="extraGbText">0 GB (Within limit)</span>
+            </div>
+            <div class="result-row">
+              <span>Extra Storage Fee (₹50 / GB)</span>
+              <span id="extraCostText">₹0 / mo</span>
+            </div>
+            <div class="result-row total-row">
+              <span>Estimated Monthly Fee</span>
+              <span class="result-price" id="totalMonthlyPrice">₹3,000</span>
+            </div>
+            <span class="small-text" style="text-align: right; display: block;">
+              Billed monthly on actual usage • No extra charge when ≤ 10 GB
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Development Roadmap & Phased Timeline -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-header fade-rise">
+          <span class="pill section-tag"><span class="pill-neutral-dot"></span> Execution Plan</span>
+          <h2>Development Roadmap (~1.5 Months)</h2>
+          <p class="body-text">
+            A structured, 4-phase rollout methodology ensuring zero disruption to existing clinic operations and thorough staff validation.
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-step fade-rise">
+            <div class="step-meta">
+              <span class="step-phase">Phase 1</span>
+              <span class="step-duration">Week 1 – 2</span>
+            </div>
+            <h3>Architecture &amp; Design</h3>
+            <p>
+              Finalize field requirements, database schema design, branch hierarchy, user role specifications, and interactive UI wireframes.
+            </p>
+          </div>
+
+          <div class="roadmap-step fade-rise">
+            <div class="step-meta">
+              <span class="step-phase">Phase 2</span>
+              <span class="step-duration">Week 2 – 4</span>
+            </div>
+            <h3>Core Operational Build</h3>
+            <p>
+              Development of patient registration, duplicate detection, multi-branch scheduling, fee structures, session packages, and billing engine.
+            </p>
+          </div>
+
+          <div class="roadmap-step fade-rise">
+            <div class="step-meta">
+              <span class="step-phase">Phase 3</span>
+              <span class="step-duration">Week 4 – 5</span>
+            </div>
+            <h3>CRM &amp; Integrations</h3>
+            <p>
+              Building CRM lead funnels, WhatsApp reminder triggers, biometric device data sync, daily expense tracking, and media directories.
+            </p>
+          </div>
+
+          <div class="roadmap-step fade-rise">
+            <div class="step-meta">
+              <span class="step-phase">Phase 4</span>
+              <span class="step-duration">Week 5 – 6</span>
+            </div>
+            <h3>UAT, Rollout &amp; Training</h3>
+            <p>
+              Comprehensive multi-branch user testing, cloud production deployment, SSL hardening, staff onboarding, and live operational handover.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formal Sign-Off & Acceptance Block -->
+    <section class="section" id="acceptance">
+      <div class="container">
+        <div class="section-header fade-rise">
+          <span class="pill section-tag"><span class="pill-neutral-dot"></span> Authorization</span>
+          <h2>Proposal Acceptance &amp; Project Authorization</h2>
+          <p class="body-text">
+            Upon mutual sign-off, this quotation constitutes the technical and commercial agreement for commencing development by BUILD FAST WEB.
+          </p>
+        </div>
+
+        <div class="signoff-box fade-rise">
+          <div class="signoff-column">
+            <h3>Client Authorization</h3>
+            <div class="signature-line-group">
+              <div class="sig-field">
+                <span class="sig-label">Authorized Signatory Name</span>
+                <div class="sig-line">Dr. Bharath / Acu Heal Management</div>
+              </div>
+              <div class="sig-field">
+                <span class="sig-label">Clinic Entity</span>
+                <div class="sig-line">Dr. Bharath's Acu Heal (3 Branches)</div>
+              </div>
+              <div class="sig-field">
+                <span class="sig-label">Signature &amp; Date</span>
+                <div class="sig-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="signoff-column">
+            <h3>Software Engineering Partner</h3>
+            <div class="signature-line-group">
+              <div class="sig-field">
+                <span class="sig-label">Authorized Technical Lead</span>
+                <div class="sig-line">Lead Software Architect, BUILD FAST WEB</div>
+              </div>
+              <div class="sig-field">
+                <span class="sig-label">Direct Contact / Phone</span>
+                <div class="sig-line">+91 97895 02278</div>
+              </div>
+              <div class="sig-field">
+                <span class="sig-label">Signature &amp; Date</span>
+                <div class="sig-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="brand-wrapper">
+            <div class="brand-logo-container">
+              <img src="assets/dr-bharath-acu-heal-logo.png" alt="Dr. Bharath's Acu Heal Logo" class="brand-logo-img">
+            </div>
+            <div class="brand-divider"></div>
+            <div>
+              <div style="font-weight: 600; font-family: var(--font-display);">Dr. Bharath's Acu Heal</div>
+              <div class="small-text">Custom Multi-Branch Management System</div>
+            </div>
+          </div>
+
+          <div class="footer-meta">
+            <span class="partner-tag"><span>Prepared by:</span> BUILD FAST WEB</span> • 
+            <a href="tel:+919789502278" style="color: var(--foreground); font-weight: 600; text-decoration: underline; text-underline-offset: 3px;">
+              📞 +91 97895 02278
+            </a> • 
+            <span>Ref: BFW-ACU-2026-01</span>
+          </div>
+        </div>
+
+        <div class="footer-disclaimer">
+          This document contains proprietary technical and commercial specifications prepared exclusively by <strong>BUILD FAST WEB</strong> (Contact: <strong>+91 97895 02278</strong>) for <strong>Dr. Bharath's Acu Heal</strong>. Estimates are valid for 30 days from date of issuance. Commercial terms: ₹75,000 one-time custom software build (milestone-based) and ₹3,000/month recurring cloud infrastructure and active maintenance plan.
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
