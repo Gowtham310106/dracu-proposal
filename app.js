@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMotionObserver();
   initModuleFilters();
   initStorageCalculator();
+  initPwaViewSwitcher();
   initPdfAndPrintActions();
 });
 
@@ -117,8 +118,9 @@ function initModuleFilters() {
 
 /* ==========================================================================
    INTERACTIVE STORAGE & COST ESTIMATOR
-   1-min video up to 20 MB, Patient photo ~2 MB
-   Base: 10 GB Included (₹0 extra). Extra: ₹50 / GB / month on actual exceeded storage.
+   1-min video up to 15 MB, Patient photo ~2 MB
+   Base: 30 GB Included (₹0 extra). Extra: ₹50 / GB / month on actual exceeded storage.
+   30 GB stores ~2,000+ 15MB videos or ~15,000 patient photos.
    ========================================================================== */
 function initStorageCalculator() {
   const videoSlider = document.getElementById('videoSlider');
@@ -147,8 +149,8 @@ function initStorageCalculator() {
     const videoCount = parseInt(videoSlider.value, 10) || 0;
     const imageCount = parseInt(imageSlider.value, 10) || 0;
 
-    // Sizes in MB: 1-min video = 20 MB, Photo = 2 MB
-    const videoSizeMb = 20;
+    // Sizes in MB: 1-min video = 15 MB, Photo = 2 MB
+    const videoSizeMb = 15;
     const imageSizeMb = 2;
 
     const totalVideoMb = videoCount * videoSizeMb;
@@ -158,7 +160,7 @@ function initStorageCalculator() {
     const totalImageGb = totalImageMb / 1024;
     const totalGb = totalVideoGb + totalImageGb;
 
-    const includedGb = 10;
+    const includedGb = 30;
     const ratePerExtraGb = 50;
     const baseMonthlyFee = 3000;
 
@@ -167,7 +169,7 @@ function initStorageCalculator() {
     if (imageDisplay) imageDisplay.textContent = `${imageCount.toLocaleString('en-IN')} Photos`;
 
     if (metricVideosGb) metricVideosGb.textContent = `${totalVideoGb.toFixed(1)} GB`;
-    if (metricVideosCount) metricVideosCount.textContent = `${videoCount} Videos (@ 20MB)`;
+    if (metricVideosCount) metricVideosCount.textContent = `${videoCount.toLocaleString('en-IN')} Videos (@ 15MB)`;
 
     if (metricImagesGb) metricImagesGb.textContent = `${totalImageGb.toFixed(1)} GB`;
     if (metricImagesCount) metricImagesCount.textContent = `${imageCount.toLocaleString('en-IN')} Photos (@ 2MB)`;
@@ -175,7 +177,7 @@ function initStorageCalculator() {
     if (meterUsedText) meterUsedText.textContent = `${totalGb.toFixed(1)} GB`;
     if (calcTotalGb) calcTotalGb.textContent = `${totalGb.toFixed(1)} GB`;
 
-    // Progress bar calculation (10 GB = 100% of base allowance)
+    // Progress bar calculation (30 GB = 100% of base allowance)
     const percentageOfBase = Math.min(100, Math.round((totalGb / includedGb) * 100));
     if (meterFill) {
       meterFill.style.width = `${percentageOfBase}%`;
@@ -188,7 +190,7 @@ function initStorageCalculator() {
 
     if (totalGb <= includedGb) {
       const pct = Math.round((totalGb / includedGb) * 100);
-      if (meterStatusBadge) meterStatusBadge.textContent = `${pct}% of Free 10 GB Allowance`;
+      if (meterStatusBadge) meterStatusBadge.textContent = `${pct}% of Free 30 GB Allowance`;
       if (extraGbText) extraGbText.textContent = `0 GB (Within free plan)`;
       if (extraCostText) extraCostText.textContent = `₹0 / mo`;
       if (totalMonthlyPrice) totalMonthlyPrice.textContent = `₹${baseMonthlyFee.toLocaleString('en-IN')}`;
@@ -289,4 +291,42 @@ function initPdfAndPrintActions() {
   if (heroPdfBtn) {
     heroPdfBtn.addEventListener('click', triggerPdfDownload);
   }
+}
+
+/* ==========================================================================
+   INTERACTIVE PWA PHONE MOCKUP VIEW SWITCHER
+   Allows user to toggle between Home Screen (installed among real apps with logo)
+   and Live In-App clinic interface
+   ========================================================================== */
+function initPwaViewSwitcher() {
+  const btnHomescreen = document.getElementById('btnHomescreen');
+  const btnInapp = document.getElementById('btnInapp');
+  const pwaPhoneImg = document.getElementById('pwaPhoneImg');
+  const pwaBadgeText = document.getElementById('pwaBadgeText');
+
+  if (!btnHomescreen || !btnInapp || !pwaPhoneImg) return;
+
+  btnHomescreen.addEventListener('click', () => {
+    btnHomescreen.classList.add('active');
+    btnInapp.classList.remove('active');
+    pwaPhoneImg.style.opacity = '0';
+    setTimeout(() => {
+      pwaPhoneImg.src = 'assets/pwa-homescreen-mockup.jpg';
+      pwaPhoneImg.alt = 'Dr. Bharath Acu Heal PWA App Installed on Smartphone Home Screen with Official Logo';
+      if (pwaBadgeText) pwaBadgeText.textContent = 'Acu Heal with WhatsApp & other apps';
+      pwaPhoneImg.style.opacity = '1';
+    }, 150);
+  });
+
+  btnInapp.addEventListener('click', () => {
+    btnInapp.classList.add('active');
+    btnHomescreen.classList.remove('active');
+    pwaPhoneImg.style.opacity = '0';
+    setTimeout(() => {
+      pwaPhoneImg.src = 'assets/pwa-mobile-app-mockup.jpg';
+      pwaPhoneImg.alt = 'Dr. Bharath Acu Heal Live Clinic Management In-App Interface';
+      if (pwaBadgeText) pwaBadgeText.textContent = 'In-App: Real-time appointments & doctor queue';
+      pwaPhoneImg.style.opacity = '1';
+    }, 150);
+  });
 }

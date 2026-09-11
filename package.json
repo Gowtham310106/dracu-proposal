@@ -4,7 +4,8 @@
   "private": true,
   "description": "Custom Multi-Branch Clinic Management Software Proposal for Dr. Bharath's Acu Heal by BUILD FAST WEB",
   "scripts": {
-    "start": "serve ."
+    "dev": "npx serve .",
+    "start": "npx serve ."
   },
   "author": "BUILD FAST WEB <9789502278>",
   "license": "UNLICENSED"
