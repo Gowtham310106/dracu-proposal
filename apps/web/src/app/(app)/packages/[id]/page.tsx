@@ -35,6 +35,8 @@ export default function PackageDetailPage() {
   return (
     <>
       <PageHeader
+        backHref="/packages"
+        backLabel="Treatment packages"
         title={planName}
         subtitle={
           <span className="flex flex-wrap items-center gap-2">

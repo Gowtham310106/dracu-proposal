@@ -56,6 +56,8 @@ export default function PatientDetailPage() {
   return (
     <>
       <PageHeader
+        backHref="/patients"
+        backLabel="Patients"
         title={patient.fullName}
         subtitle={
           <span className="flex flex-wrap items-center gap-x-2 gap-y-1">

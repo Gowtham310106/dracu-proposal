@@ -1,7 +1,8 @@
 'use client';
 
 import { forwardRef, useEffect, useRef, useState, type ButtonHTMLAttributes, type InputHTMLAttributes, type ReactNode, type SelectHTMLAttributes, type TextareaHTMLAttributes } from 'react';
-import { Loader2, X, ChevronDown, Search } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Loader2, X, ChevronDown, ChevronLeft, Search } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 /* ---------- Button ---------- */
@@ -424,15 +425,47 @@ export function Spinner({ className }: { className?: string }) {
   return <Loader2 className={cn('size-5 animate-spin text-brand-600', className)} />;
 }
 
-export function PageHeader({ title, subtitle, actions }: { title: string; subtitle?: ReactNode; actions?: ReactNode }) {
+export function PageHeader({ title, subtitle, actions, backHref, backLabel }: { title: string; subtitle?: ReactNode; actions?: ReactNode; backHref?: string; backLabel?: string }) {
   return (
-    <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 className="text-xl font-bold tracking-tight text-ink">{title}</h1>
-        {subtitle && <p className="mt-0.5 text-sm text-muted">{subtitle}</p>}
+    <div className="mb-5">
+      {backHref && <BackLink href={backHref} label={backLabel} />}
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="text-xl font-bold tracking-tight text-ink">{title}</h1>
+          {subtitle && <p className="mt-0.5 text-sm text-muted">{subtitle}</p>}
+        </div>
+        {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
       </div>
-      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
     </div>
+  );
+}
+
+/** Set by the app shell on every navigation so BackLink knows where the user actually came from. */
+export const PREV_PATH_KEY = 'acuheal.prevPath';
+
+/**
+ * Returns to the list this record belongs to.
+ * If the previous screen really was that list, step back through history so the desk keeps
+ * its page number, search text and filters. Otherwise go to the list directly, so the
+ * button never does something other than what its label says.
+ */
+export function BackLink({ href, label }: { href: string; label?: string }) {
+  const router = useRouter();
+  const goBack = () => {
+    let cameFromList = false;
+    try {
+      cameFromList = (window.sessionStorage.getItem(PREV_PATH_KEY) ?? '') === href;
+    } catch {
+      /* private browsing */
+    }
+    if (cameFromList && window.history.length > 1) router.back();
+    else router.push(href);
+  };
+  return (
+    <button type="button" onClick={goBack} className="-ml-1 mb-2 inline-flex items-center gap-1 rounded-md px-1 py-0.5 text-sm font-medium text-muted transition hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">
+      <ChevronLeft className="size-4" />
+      {label ? `Back to ${label}` : 'Back'}
+    </button>
   );
 }
 

@@ -46,6 +46,8 @@ export default function StaffDetailPage() {
   return (
     <>
       <PageHeader
+        backHref="/staff"
+        backLabel="Staff"
         title={staff.fullName}
         subtitle={
           <span className="flex flex-wrap items-center gap-2">

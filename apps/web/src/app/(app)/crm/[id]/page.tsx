@@ -49,6 +49,8 @@ export default function LeadDetailPage() {
   return (
     <>
       <PageHeader
+        backHref="/crm"
+        backLabel="Enquiries"
         title={lead.name}
         subtitle={
           <span className="flex flex-wrap items-center gap-2">

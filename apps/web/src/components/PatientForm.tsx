@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { resolver, toDefaults } from '@/lib/form';
 import { useQuery } from '@tanstack/react-query';
 import { Camera, UserCheck, X } from 'lucide-react';
-import Webcam from 'react-webcam';
 import { defaultValuesFor, PATIENT_FORM, patientInput, type Patient } from '@acuheal/types';
 import { FormRenderer } from '@/components/forms/FormRenderer';
+import { PhotoCapture } from '@/components/PhotoCapture';
 import { Button, ErrorNote, Modal, Select } from '@/components/ui';
 import { branchService, patientService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
@@ -30,7 +30,6 @@ export function PatientForm({ initial, submitLabel, onSubmit, checkDuplicates = 
   const [serverError, setServerError] = useState('');
   const [camOpen, setCamOpen] = useState(false);
   const [dupDismissed, setDupDismissed] = useState(false);
-  const webcamRef = useRef<Webcam>(null);
 
   const { data: branches = [] } = useQuery({ queryKey: ['branches'], queryFn: branchService.list });
 
@@ -55,12 +54,6 @@ export function PatientForm({ initial, submitLabel, onSubmit, checkDuplicates = 
   });
 
   useEffect(() => setDupDismissed(false), [debouncedMobile]);
-
-  const capture = () => {
-    const shot = webcamRef.current?.getScreenshot();
-    if (shot) form.setValue('photoUrl', shot, { shouldDirty: true });
-    setCamOpen(false);
-  };
 
   /** Copies an existing patient's details into the form (front desk auto-fill). */
   const autofillFrom = (p: Patient) => {
@@ -181,10 +174,12 @@ export function PatientForm({ initial, submitLabel, onSubmit, checkDuplicates = 
         </div>
       </div>
 
-      <Modal open={camOpen} onClose={() => setCamOpen(false)} title="Capture patient photo" footer={<><Button variant="secondary" onClick={() => setCamOpen(false)}>Cancel</Button><Button onClick={capture}>Capture</Button></>}>
-        <Webcam ref={webcamRef} audio={false} screenshotFormat="image/jpeg" videoConstraints={{ facingMode: 'user' }} className="w-full rounded-lg" />
-        <p className="mt-2 text-xs text-muted">Allow camera access when your browser asks. The photo is stored with the patient record.</p>
-      </Modal>
+      <PhotoCapture
+        open={camOpen}
+        onClose={() => setCamOpen(false)}
+        title="Capture patient photo"
+        onCapture={(dataUrl) => form.setValue('photoUrl', dataUrl, { shouldDirty: true })}
+      />
     </form>
   );
 }

@@ -42,6 +42,8 @@ export default function InvoicePage() {
     <>
       <div className="no-print">
         <PageHeader
+        backHref="/billing"
+        backLabel="Billing"
           title={invoice.invoiceNo}
           subtitle={
             <span className="flex flex-wrap items-center gap-2">

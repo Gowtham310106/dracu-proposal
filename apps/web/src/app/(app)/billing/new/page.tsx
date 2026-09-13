@@ -83,7 +83,9 @@ export default function NewInvoicePage() {
 
   return (
     <>
-      <PageHeader title="New invoice" subtitle="Invoice numbers are generated per branch and financial year." />
+      <PageHeader
+        backHref="/billing"
+        backLabel="Billing" title="New invoice" subtitle="Invoice numbers are generated per branch and financial year." />
 
       <div className="grid gap-4 lg:grid-cols-[1fr_20rem]">
         <div className="space-y-4">

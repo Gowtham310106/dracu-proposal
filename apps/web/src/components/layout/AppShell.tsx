@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import type { Permission } from '@acuheal/types';
 import { useAuth } from '@/context/AuthContext';
-import { Spinner } from '@/components/ui';
+import { PREV_PATH_KEY, Spinner } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { initials } from '@/lib/format';
 
@@ -55,6 +55,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, [ready, user, router]);
 
   useEffect(() => setNavOpen(false), [pathname]);
+
+  // Remember the screen we just left, so a "Back to …" button can tell whether stepping
+  // back through history would actually land on the list it names.
+  useEffect(() => {
+    return () => {
+      try {
+        window.sessionStorage.setItem(PREV_PATH_KEY, pathname);
+      } catch {
+        /* private browsing */
+      }
+    };
+  }, [pathname]);
 
   if (!ready || !user) {
     return (

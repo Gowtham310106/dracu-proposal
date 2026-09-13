@@ -12,7 +12,9 @@ export default function NewPatientPage() {
 
   return (
     <>
-      <PageHeader title="Register patient" subtitle="The mobile number is checked against every branch as you type." />
+      <PageHeader
+        backHref="/patients"
+        backLabel="Patients" title="Register patient" subtitle="The mobile number is checked against every branch as you type." />
       <PatientForm
         submitLabel="Register patient"
         onSubmit={async (values) => {
