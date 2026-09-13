@@ -7,12 +7,13 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { CalendarPlus, ChevronLeft, ChevronRight } from 'lucide-react';
 import dayjs from 'dayjs';
 import { APPOINTMENT_STATUS, type Appointment } from '@acuheal/types';
-import { Badge, Button, Card, EmptyState, Input, Modal, PageHeader, Select, SessionMeter, Spinner, statusTone } from '@/components/ui';
+import { Badge, Button, Card, EmptyState, Input, Modal, PageHeader, Select, SessionMeter, statusTone } from '@/components/ui';
 import { AppointmentFormModal } from '@/components/AppointmentFormModal';
 import { appointmentService, staffService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { fmtDate, fmtTime, mobileDisplay, today } from '@/lib/format';
 import { cn } from '@/lib/cn';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function AppointmentsPage() {
   const params = useSearchParams();
@@ -77,9 +78,7 @@ export default function AppointmentsPage() {
       <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_18rem]">
         <Card title="Day directory" bodyClass="p-0">
           {isLoading ? (
-            <div className="flex justify-center py-16">
-              <Spinner />
-            </div>
+            <SectionLoader />
           ) : (data?.appointments.length ?? 0) === 0 ? (
             <EmptyState title="No appointments" hint="Book an appointment to fill this day." action={can('appointments:write') && <Button size="sm" onClick={() => setBooking(true)}>Book appointment</Button>} />
           ) : (

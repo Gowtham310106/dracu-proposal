@@ -6,12 +6,13 @@ import { useParams } from 'next/navigation';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ClipboardPlus, IndianRupee } from 'lucide-react';
 import { PAYMENT_MODES } from '@acuheal/types';
-import { Badge, Button, Card, EmptyState, ErrorNote, Field, Input, Modal, PageHeader, Select, SessionMeter, Spinner, Textarea, statusTone } from '@/components/ui';
+import { Badge, Button, Card, EmptyState, ErrorNote, Field, Input, Modal, PageHeader, Select, SessionMeter, Textarea, statusTone } from '@/components/ui';
 import { SessionLogModal } from '@/components/SessionLogModal';
 import { billingService, packageService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { fmtDate, inr, today } from '@/lib/format';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function PackageDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -23,9 +24,7 @@ export default function PackageDetailPage() {
 
   if (isLoading || !pkg) {
     return (
-      <div className="flex justify-center py-16">
-        <Spinner />
-      </div>
+      <SectionLoader />
     );
   }
 

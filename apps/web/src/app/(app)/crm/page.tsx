@@ -8,12 +8,13 @@ import { defaultValuesFor, LEAD_FORM, LEAD_SOURCES, LEAD_STATUS, leadInput, type
 import { useForm } from 'react-hook-form';
 import { resolver } from '@/lib/form';
 import { FormRenderer } from '@/components/forms/FormRenderer';
-import { Badge, Button, Card, EmptyState, ErrorNote, Modal, PageHeader, Select, Spinner, StatCard, Tabs, statusTone } from '@/components/ui';
+import { Badge, Button, Card, EmptyState, ErrorNote, Modal, PageHeader, Select, StatCard, Tabs, statusTone } from '@/components/ui';
 import { branchService, leadService, staffService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { fmtDate, mobileDisplay, relative } from '@/lib/format';
 import { cn } from '@/lib/cn';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function CrmPage() {
   const { branchId, can } = useAuth();
@@ -60,9 +61,7 @@ export default function CrmPage() {
       </div>
 
       {isLoading ? (
-        <div className="flex justify-center py-16">
-          <Spinner />
-        </div>
+        <SectionLoader />
       ) : view === 'board' ? (
         <div className="mt-4 grid gap-3 md:grid-cols-3 xl:grid-cols-5">
           {LEAD_STATUS.map((status) => {

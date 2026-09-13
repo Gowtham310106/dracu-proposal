@@ -7,12 +7,13 @@ import { useParams, useSearchParams } from 'next/navigation';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { IndianRupee, Printer } from 'lucide-react';
 import { PAYMENT_MODES } from '@acuheal/types';
-import { Badge, Button, Card, ErrorNote, Field, Input, Modal, PageHeader, Select, Spinner, Textarea, statusTone } from '@/components/ui';
+import { Badge, Button, Card, ErrorNote, Field, Input, Modal, PageHeader, Select, Textarea, statusTone } from '@/components/ui';
 import { billingService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { fmtDate, inr, mobileDisplay, today } from '@/lib/format';
 import { cn } from '@/lib/cn';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function InvoicePage() {
   const { id } = useParams<{ id: string }>();
@@ -27,9 +28,7 @@ export default function InvoicePage() {
 
   if (isLoading || !invoice) {
     return (
-      <div className="flex justify-center py-16">
-        <Spinner />
-      </div>
+      <SectionLoader />
     );
   }
 

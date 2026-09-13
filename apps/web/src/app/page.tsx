@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
-import { Spinner } from '@/components/ui';
+import { BrandLoader } from '@/components/BrandLoader';
 
 export default function Home() {
   const { ready, user } = useAuth();
@@ -15,8 +15,6 @@ export default function Home() {
   }, [ready, user, router]);
 
   return (
-    <main className="flex min-h-dvh items-center justify-center">
-      <Spinner className="size-7" />
-    </main>
+    <main><BrandLoader label="Opening Acu Heal…" /></main>
   );
 }

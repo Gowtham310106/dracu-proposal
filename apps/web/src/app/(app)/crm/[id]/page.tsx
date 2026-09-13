@@ -10,11 +10,12 @@ import { Phone, UserPlus } from 'lucide-react';
 import { defaultValuesFor, FOLLOW_UP_FORM, followUpInput } from '@acuheal/types';
 import { FormRenderer } from '@/components/forms/FormRenderer';
 import { PatientForm } from '@/components/PatientForm';
-import { Badge, Button, Card, EmptyState, ErrorNote, Modal, PageHeader, Spinner, statusTone } from '@/components/ui';
+import { Badge, Button, Card, EmptyState, ErrorNote, Modal, PageHeader, statusTone } from '@/components/ui';
 import { leadService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { fmtDateTime, mobileDisplay, relative } from '@/lib/format';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function LeadDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -40,9 +41,7 @@ export default function LeadDetailPage() {
 
   if (isLoading || !lead) {
     return (
-      <div className="flex justify-center py-16">
-        <Spinner />
-      </div>
+      <SectionLoader />
     );
   }
 

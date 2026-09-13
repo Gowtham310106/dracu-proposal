@@ -5,13 +5,14 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { AlertTriangle, CalendarPlus, Film, Layers, Pencil, Phone, ReceiptIndianRupee } from 'lucide-react';
-import { Badge, Button, Card, EmptyState, Modal, PageHeader, SessionMeter, Spinner, Tabs, statusTone } from '@/components/ui';
+import { Badge, Button, Card, EmptyState, Modal, PageHeader, SessionMeter, Tabs, statusTone } from '@/components/ui';
 import { PatientForm } from '@/components/PatientForm';
 import { PackageFormModal } from '@/components/PackageFormModal';
 import { MediaUploadModal } from '@/components/MediaUploadModal';
 import { patientService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { fmtDate, fmtDateTime, initials, inr, mobileDisplay, relative } from '@/lib/format';
+import { SectionLoader } from '@/components/BrandLoader';
 
 const TABS = [
   { id: 'profile', label: 'Profile' },
@@ -44,9 +45,7 @@ export default function PatientDetailPage() {
 
   if (isLoading || !patient) {
     return (
-      <div className="flex justify-center py-16">
-        <Spinner />
-      </div>
+      <SectionLoader />
     );
   }
 

@@ -9,11 +9,12 @@ import { IndianRupee, Pencil } from 'lucide-react';
 import { defaultValuesFor, ROLE_LABELS, SALARY_PAYMENT_FORM, salaryPaymentInput } from '@acuheal/types';
 import { FormRenderer } from '@/components/forms/FormRenderer';
 import { StaffModal } from '@/components/StaffModal';
-import { Badge, Button, Card, EmptyState, ErrorNote, Modal, PageHeader, Spinner } from '@/components/ui';
+import { Badge, Button, Card, EmptyState, ErrorNote, Modal, PageHeader } from '@/components/ui';
 import { staffService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { fmtDate, inr, mobileDisplay, today } from '@/lib/format';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function StaffDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -35,9 +36,7 @@ export default function StaffDetailPage() {
 
   if (isLoading || !staff) {
     return (
-      <div className="flex justify-center py-16">
-        <Spinner />
-      </div>
+      <SectionLoader />
     );
   }
 

@@ -7,8 +7,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginInput, type LoginInput } from '@acuheal/types';
 import { useAuth } from '@/context/AuthContext';
-import { Button, ErrorNote, Field, Input, Spinner } from '@/components/ui';
+import { Button, ErrorNote, Field, Input } from '@/components/ui';
 import { ApiError } from '@/lib/api';
+import { BrandLoader } from '@/components/BrandLoader';
 
 export default function LoginPage() {
   const { login, user, ready } = useAuth();
@@ -35,9 +36,7 @@ export default function LoginPage() {
 
   if (!ready) {
     return (
-      <main className="flex min-h-dvh items-center justify-center">
-        <Spinner className="size-7" />
-      </main>
+      <main><BrandLoader label="Loading…" /></main>
     );
   }
 

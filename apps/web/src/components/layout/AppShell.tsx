@@ -10,9 +10,10 @@ import {
 } from 'lucide-react';
 import type { Permission } from '@acuheal/types';
 import { useAuth } from '@/context/AuthContext';
-import { PREV_PATH_KEY, Spinner } from '@/components/ui';
+import { PREV_PATH_KEY } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { initials } from '@/lib/format';
+import { BrandLoader } from '@/components/BrandLoader';
 
 interface NavItem {
   href: string;
@@ -70,9 +71,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   if (!ready || !user) {
     return (
-      <div className="flex min-h-dvh items-center justify-center">
-        <Spinner className="size-7" />
-      </div>
+      <BrandLoader label="Restoring your session…" />
     );
   }
 

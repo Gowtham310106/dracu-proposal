@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Trash2 } from 'lucide-react';
 import { MEDIA_CATEGORIES, MEDIA_KINDS } from '@acuheal/types';
-import { Badge, Button, Card, EmptyState, PageHeader, Select, Spinner, StatCard } from '@/components/ui';
+import { Badge, Button, Card, EmptyState, PageHeader, Select, StatCard } from '@/components/ui';
 import { mediaService } from '@/services';
 import { useAuth } from '@/context/AuthContext';
 import { bytes, fmtDate, inr } from '@/lib/format';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function MediaPage() {
   const { branchId, can } = useAuth();
@@ -87,9 +88,7 @@ export default function MediaPage() {
       </div>
 
       {isLoading ? (
-        <div className="flex justify-center py-16">
-          <Spinner />
-        </div>
+        <SectionLoader />
       ) : (data?.items.length ?? 0) === 0 ? (
         <Card className="mt-4">
           <EmptyState title="No media uploaded yet" hint="Upload progress videos or photos from a patient's record." />

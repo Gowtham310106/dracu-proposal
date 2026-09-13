@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { AlertTriangle, ClipboardPlus, Phone } from 'lucide-react';
 import type { Appointment } from '@acuheal/types';
-import { Badge, Button, EmptyState, PageHeader, SessionMeter, Spinner, statusTone } from '@/components/ui';
+import { Badge, Button, EmptyState, PageHeader, SessionMeter, statusTone } from '@/components/ui';
 import { SessionLogModal } from '@/components/SessionLogModal';
 import { appointmentService } from '@/services';
 import { fmtDate, fmtTime, initials, mobileDisplay, today } from '@/lib/format';
 import { cn } from '@/lib/cn';
+import { SectionLoader } from '@/components/BrandLoader';
 
 export default function DoctorQueuePage() {
   const qc = useQueryClient();
@@ -26,9 +27,7 @@ export default function DoctorQueuePage() {
       <PageHeader title="Today's queue" subtitle={fmtDate(today())} actions={<Link href="/appointments"><Button variant="secondary">Full directory</Button></Link>} />
 
       {isLoading ? (
-        <div className="flex justify-center py-16">
-          <Spinner />
-        </div>
+        <SectionLoader />
       ) : queue.length === 0 ? (
         <div className="card">
           <EmptyState title="No patients in the queue" hint="Appointments booked for today will appear here as the front desk checks patients in." />
