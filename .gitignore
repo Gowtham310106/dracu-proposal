@@ -1,14 +1,26 @@
 # Dependencies
 node_modules/
-.pnp
-.pnp.js
+.pnpm-store/
 
-# Vercel & Production Builds
-.vercel
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Builds & caches
+.next/
+.turbo/
 dist/
 build/
+out/
+coverage/
+*.tsbuildinfo
+.vercel
 
-# Operating System & IDE
+# Local media uploads (dev storage driver)
+apps/api/uploads/
+
+# OS & IDE
 .DS_Store
 Thumbs.db
 .idea/

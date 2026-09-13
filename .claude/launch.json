@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@acuheal/web", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "api",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@acuheal/api", "dev"],
+      "port": 4000
+    },
+    {
+      "name": "api-standalone",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@acuheal/api", "dev:standalone"],
+      "port": 4000
+    }
+  ]
+}

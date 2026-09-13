@@ -1,12 +1,22 @@
 {
-  "name": "dr-bharath-acu-heal-quotation",
-  "version": "1.0.0",
+  "name": "acuheal-monorepo",
   "private": true,
-  "description": "Custom Multi-Branch Clinic Management Software Proposal for Dr. Bharath's Acu Heal by BUILD FAST WEB",
-  "scripts": {
-    "dev": "npx serve .",
-    "start": "npx serve ."
+  "packageManager": "pnpm@10.22.0",
+  "engines": {
+    "node": ">=20"
   },
-  "author": "BUILD FAST WEB <9789502278>",
-  "license": "UNLICENSED"
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "seed": "pnpm --filter @acuheal/api seed",
+    "seed:demo": "pnpm --filter @acuheal/api seed:demo",
+    "demo": "pnpm --filter @acuheal/api dev:standalone"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  }
 }

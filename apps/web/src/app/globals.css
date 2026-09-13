@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+
+/* Brand palette sampled from the Acu Heal logo: navy wordmark + acupuncture point dots. */
+@theme {
+  --color-brand-50: #eef1fb;
+  --color-brand-100: #d9e0f6;
+  --color-brand-200: #b5c1ec;
+  --color-brand-300: #8697dd;
+  --color-brand-400: #5a6cc7;
+  --color-brand-500: #3a49a8;
+  --color-brand-600: #2b3585;
+  --color-brand-700: #1f2a68;
+  --color-brand-800: #182050;
+  --color-brand-900: #11163a;
+
+  --color-point-red: #d81f26;
+  --color-point-green: #128a3e;
+  --color-point-yellow: #f2c12e;
+  --color-point-blue: #2b2f8f;
+  --color-point-stone: #9b8e86;
+
+  --color-ink: #14161f;
+  --color-muted: #6b7280;
+  --color-line: #e3e6ef;
+  --color-surface: #ffffff;
+  --color-canvas: #f6f7fb;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c9cede transparent;
+}
+
+@utility card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 0.875rem;
+  box-shadow: 0 1px 2px rgb(20 22 31 / 0.04);
+}
+
+@utility field-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.3rem;
+}
+
+/* Native controls styled once so every form looks identical across branches. */
+@layer components {
+  .inp {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-line);
+    background: #fff;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .inp:focus {
+    border-color: var(--color-brand-500);
+    box-shadow: 0 0 0 3px rgb(58 73 168 / 0.13);
+  }
+  .inp:disabled {
+    background: #f3f4f8;
+    color: var(--color-muted);
+  }
+  .inp[aria-invalid='true'] {
+    border-color: var(--color-point-red);
+  }
+  textarea.inp {
+    min-height: 4.75rem;
+    resize: vertical;
+  }
+}
+
+/* Print: invoices and receipts only. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  @page {
+    margin: 12mm;
+  }
+}
+
+@media print and (max-width: 80mm) {
+  @page {
+    margin: 3mm;
+  }
+}
